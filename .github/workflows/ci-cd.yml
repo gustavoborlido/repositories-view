@@ -37,12 +37,6 @@ jobs:
       - name: Build Release APK
         run: ./gradlew assembleRelease
 
-      - name: Upload APKs as Artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: apk-files
-          path: app/build/outputs/apk/debug/*.apk
-
   tests:
     name: Run Tests
     runs-on: ubuntu-latest
