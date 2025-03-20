@@ -1,14 +1,16 @@
 package com.github.reposview.data.model
 
+import com.google.gson.annotations.SerializedName
+
 data class RepositoryResponse(
-    val id: Int,
-    val node_id: String,
-    val name: String,
-    val full_name: String,
-    val owner: OwnerResponse,
-    val private: Boolean,
-    val html_url: String,
-    val description: String?,
-    val fork: Boolean,
-    val language: String?
+    @SerializedName("id") val id: Int,
+    @SerializedName("node_id") val nodeId: String,
+    @SerializedName("name") val name: String,
+    @SerializedName("full_name") val fullName: String,
+    @SerializedName("owner") val owner: OwnerResponse,
+    @SerializedName("private") val private: Boolean,
+    @SerializedName("htmlUrl") val htmlUrl: String,
+    @SerializedName("description") val description: String?,
+    @SerializedName("fork") val fork: Boolean,
+    @SerializedName("language") val language: String?
 )

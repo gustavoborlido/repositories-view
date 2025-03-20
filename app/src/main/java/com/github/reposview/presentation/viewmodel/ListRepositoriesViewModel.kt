@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.github.reposview.domain.usecase.GetListRepositoriesUseCase
 import com.github.reposview.presentation.state.RepositoriesViewState
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class ListRepositoriesViewModel(
     private val getListRepositoriesUseCase: GetListRepositoriesUseCase
@@ -25,7 +26,7 @@ class ListRepositoriesViewModel(
                 }.onFailure { exception ->
                     _viewState.value = RepositoriesViewState.Error(exception.message ?: "Erro desconhecido")
                 }
-            } catch (e: Exception) {
+            } catch (e: IOException) {
                 _viewState.value = RepositoriesViewState.Error(e.message ?: "Erro inesperado")
             }
         }
