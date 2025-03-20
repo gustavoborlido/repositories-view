@@ -54,4 +54,8 @@ dependencies {
     implementation(libs.retrofit2)
     implementation(libs.glide)
     implementation(libs.converter.gson)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
+    testImplementation(libs.kotlinx.coroutine.test)
+    testImplementation(libs.arch.core.testing)
 }
