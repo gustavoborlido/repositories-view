@@ -18,15 +18,12 @@ class ListRepositoriesViewModel(
     fun getRepositories() {
         viewModelScope.launch {
             _viewState.value = RepositoriesViewState.Loading
-            try {
-                val result = getListRepositoriesUseCase()
-                result.onSuccess { repos ->
-                    _viewState.value = RepositoriesViewState.Success(repos)
-                }.onFailure { exception ->
-                    _viewState.value = RepositoriesViewState.Error(exception.message ?: "Erro desconhecido")
-                }
-            } catch (e: Exception) {
-                _viewState.value = RepositoriesViewState.Error(e.message ?: "Erro inesperado")
+            val result = getListRepositoriesUseCase()
+            result.onSuccess { repos ->
+                _viewState.value = RepositoriesViewState.Success(repos)
+            }.onFailure { exception ->
+                _viewState.value =
+                    RepositoriesViewState.Error(exception.message ?: "Erro desconhecido")
             }
         }
     }
