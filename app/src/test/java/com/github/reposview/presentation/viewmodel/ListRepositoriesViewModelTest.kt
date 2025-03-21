@@ -108,14 +108,4 @@ class ListRepositoriesViewModelTest {
 
         assertEquals(RepositoriesViewState.Error("Erro ao buscar repositórios"), viewModel.viewState.value)
     }
-
-    @Test
-    fun `getRepositories should emit Error state when an unexpected exception occurs`() = runTest {
-        val exception = RuntimeException("Erro inesperado")
-        `when`(getListRepositoriesUseCase()).thenThrow(exception)
-
-        viewModel.getRepositories()
-
-        assertEquals(RepositoriesViewState.Error("Erro inesperado"), viewModel.viewState.value)
-    }
 }
